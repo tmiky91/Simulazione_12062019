@@ -2,6 +2,8 @@ package it.polito.tdp.food;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import it.polito.tdp.food.model.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -32,6 +34,8 @@ public class FoodController {
     @FXML
     private TextArea txtResult;
 
+	private Model model;
+
     @FXML
     void doCalcolaDieta(ActionEvent event) {
 
@@ -51,4 +55,8 @@ public class FoodController {
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Food.fxml'.";
 
     }
+
+	public void setModel(Model model) {
+		this.model = model;
+	}
 }
