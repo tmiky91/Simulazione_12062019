@@ -33,7 +33,6 @@ public class Model {
 	public String stampaCalorie(String numCalorie) {
 		FoodDao dao = new FoodDao();
 		String risultato="";
-		double somma=0;
 		grafo = new SimpleWeightedGraph<Condiment, DefaultWeightedEdge>(DefaultWeightedEdge.class);
 		dao.listAllCondiment(idMap);
 		List<IngredientiConnessi> connessione = dao.getConnessioniIngredienti(idMap, numCalorie);
@@ -61,7 +60,7 @@ public class Model {
 				
 		for(Condiment c: list) {
 			List<Condiment> vicini = Graphs.neighborListOf(grafo, c);
-			
+			double somma=0;
 			for(Condiment c2: vicini) {
 				DefaultWeightedEdge edge = grafo.getEdge(c, c2);
 				somma+=grafo.getEdgeWeight(edge);
